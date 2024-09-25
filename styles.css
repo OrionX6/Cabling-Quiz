@@ -1,0 +1,170 @@
+/* styles.css */
+
+/* Import a Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the quiz container and add styling */
+#quiz-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Added styling for the quiz title */
+#quiz-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30px;
+}
+
+#question-number {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+#question-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#options-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#options-list li {
+  margin: 15px 0;
+}
+
+#options-list li button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #ffffff;
+  border: 2px solid #007BFF;
+  color: #007BFF;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#options-list li button:hover {
+  background-color: #007BFF;
+  color: #ffffff;
+}
+
+#options-list li button:disabled {
+  cursor: not-allowed;
+}
+
+/* Remove hover effect when disabled */
+#options-list li button:hover:disabled {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Correct and Incorrect Answer Styles */
+.correct-answer {
+  background-color: #d4edda; /* Light green background */
+  border-color: #c3e6cb;     /* Green border */
+  color: #155724;            /* Dark green text */
+}
+
+.incorrect-answer {
+  background-color: #f8d7da; /* Light red background */
+  border-color: #f5c6cb;     /* Red border */
+  color: #721c24;            /* Dark red text */
+}
+
+.correct-option {
+  background-color: #d4edda; /* Light green background */
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+#next-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #28A745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#next-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+#next-button:hover:enabled {
+  background-color: #218838;
+}
+
+#feedback {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Feedback message styles with increased specificity */
+#feedback.feedback-correct {
+  color: #28a745; /* Green color */
+}
+
+#feedback.feedback-incorrect {
+  color: #dc3545; /* Red color */
+}
+
+h2 {
+  font-size: 28px;
+  color: #333333;
+}
+
+/* Pass and Fail Message Styles */
+.pass-message {
+    color: #28a745; /* Green color */
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .fail-message {
+    color: #dc3545; /* Red color */
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  #restart-button {
+    margin-top: 30px;
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #restart-button:hover {
+    background-color: #0056b3;
+  }
