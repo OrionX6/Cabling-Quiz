@@ -83,6 +83,10 @@ function getRandomQuestions(qBank, num) {
 
 function displayQuestion(index) {
   const question = quizQuestions[index];
+
+  // Reset user's selected answer for this question
+  question.userSelectedAnswerIndex = undefined;
+
   document.getElementById('question-number').innerText = `Question ${index + 1}`;
   document.getElementById('question-text').innerText = question.question;
 
@@ -126,21 +130,19 @@ function handleOptionClick(selectedButton) {
   buttons.forEach(btn => btn.classList.remove('selected-answer'));
   selectedButton.classList.add('selected-answer');
 
-  // Disable all option buttons
-  buttons.forEach(btn => btn.disabled = true);
-
   if (selectedMode === 'test') {
-    // In Test mode, store the user's answer and proceed without feedback
-    userAnswers.push({
-      question: question.question,
-      options: question.options,
-      correctAnswerIndex: question.correctAnswerIndex,
-      selectedAnswerIndex: selectedIndex,
-      explanation: question.explanation
-    });
+    // In Test mode, do not disable buttons
+    // Enable 'Next' button
     document.getElementById('next-button').disabled = false;
+
+    // Store the selected index in the question object
+    question.userSelectedAnswerIndex = selectedIndex;
+
   } else {
     // Study mode behavior (provide immediate feedback)
+    // Disable all option buttons
+    buttons.forEach(btn => btn.disabled = true);
+
     // Clear previous feedback classes
     feedback.classList.remove('feedback-correct', 'feedback-incorrect');
 
@@ -168,15 +170,34 @@ function handleOptionClick(selectedButton) {
 }
 
 function handleNextButton() {
-  // In Test mode, update the score here
   if (selectedMode === 'test') {
     const question = quizQuestions[currentQuestionIndex];
-    const selectedAnswerIndex = userAnswers[currentQuestionIndex].selectedAnswerIndex;
+
+    // Retrieve the user's selected answer index
+    const selectedAnswerIndex = question.userSelectedAnswerIndex;
+
+    if (selectedAnswerIndex === undefined) {
+      // The user did not select an answer before clicking 'Next'
+      alert('Please select an answer before proceeding.');
+      return;
+    }
+
+    // Store the user's answer
+    userAnswers.push({
+      question: question.question,
+      options: question.options,
+      correctAnswerIndex: question.correctAnswerIndex,
+      selectedAnswerIndex: selectedAnswerIndex,
+      explanation: question.explanation
+    });
+
+    // Update the score
     if (selectedAnswerIndex === question.correctAnswerIndex) {
       score++;
     }
   }
 
+  // Proceed to next question
   currentQuestionIndex++;
   if (currentQuestionIndex < quizQuestions.length) {
     displayQuestion(currentQuestionIndex);
