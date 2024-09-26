@@ -21,7 +21,7 @@ body {
   text-align: center;
 }
 
-/* Added styling for the quiz title */
+/* Quiz Title */
 #quiz-title {
   font-size: 32px;
   font-weight: bold;
@@ -29,6 +29,67 @@ body {
   margin-bottom: 30px;
 }
 
+/* Mode Selection Buttons */
+#mode-selection {
+  margin-bottom: 30px;
+}
+
+#mode-selection button {
+  padding: 12px 20px;
+  font-size: 18px;
+  margin: 0 10px;
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mode-selection button:hover {
+  background-color: #0056b3;
+}
+
+/* LDAP Field */
+#ldap-field {
+  margin-bottom: 20px;
+}
+
+#ldap-field label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+#ldap-input {
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+}
+
+#ldap-next-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: #28A745;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#ldap-next-button:hover {
+  background-color: #218838;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: #dc3545; /* Red color */
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Question Number and Text */
 #question-number {
   font-size: 18px;
   color: #888;
@@ -41,6 +102,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* Options List */
 #options-list {
   list-style-type: none;
   padding: 0;
@@ -62,6 +124,13 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Highlight selected answer */
+#options-list li button.selected-answer {
+  background-color: #e2e3e5; /* Light grey background */
+  border-color: #adb5bd;     /* Grey border */
+  color: #495057;            /* Dark grey text */
+}
+
 #options-list li button:hover {
   background-color: #007BFF;
   color: #ffffff;
@@ -78,24 +147,25 @@ body {
 }
 
 /* Correct and Incorrect Answer Styles */
-.correct-answer {
+#options-list li button.correct-answer {
   background-color: #d4edda; /* Light green background */
   border-color: #c3e6cb;     /* Green border */
   color: #155724;            /* Dark green text */
 }
 
-.incorrect-answer {
+#options-list li button.incorrect-answer {
   background-color: #f8d7da; /* Light red background */
   border-color: #f5c6cb;     /* Red border */
   color: #721c24;            /* Dark red text */
 }
 
-.correct-option {
+#options-list li button.correct-option {
   background-color: #d4edda; /* Light green background */
   border-color: #c3e6cb;
   color: #155724;
 }
 
+/* Next Button */
 #next-button {
   margin-top: 20px;
   padding: 12px 20px;
@@ -118,6 +188,24 @@ body {
   background-color: #218838;
 }
 
+/* Download PDF Button */
+#download-pdf-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#download-pdf-button:hover {
+  background-color: #0056b3;
+}
+
+/* Feedback message */
 #feedback {
   margin-top: 30px;
   font-size: 20px;
@@ -133,6 +221,69 @@ body {
   color: #dc3545; /* Red color */
 }
 
+/* Summary Styles for Test Mode */
+#summary {
+  text-align: left;
+  margin-top: 20px;
+}
+
+#summary h2 {
+  font-size: 24px;
+  color: #333333;
+}
+
+#summary ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#summary li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc; /* Separator between questions */
+  padding-bottom: 15px;
+  /* Prevent page breaks inside list items */
+  page-break-inside: avoid;
+}
+
+#summary li:last-child {
+  border-bottom: none;
+}
+
+#summary .question-text {
+  font-weight: bold;
+}
+
+#summary .correct-answer {
+  color: #28a745;
+}
+
+#summary .your-answer {
+  color: #dc3545;
+}
+
+#summary .explanation {
+  font-style: italic;
+  color: #555555;
+}
+
+/* Restart Button in Summary */
+#restart-button {
+  margin-top: 30px;
+  padding: 12px 20px;
+  font-size: 18px;
+  background-color: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#restart-button:hover {
+  background-color: #0056b3;
+}
+
+/* Final Score Heading */
 h2 {
   font-size: 28px;
   color: #333333;
@@ -140,31 +291,42 @@ h2 {
 
 /* Pass and Fail Message Styles */
 .pass-message {
-    color: #28a745; /* Green color */
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
+  color: #28a745; /* Green color */
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.fail-message {
+  color: #dc3545; /* Red color */
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* General Button Styles */
+button {
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Prevent page breaks inside these elements */
+#quiz-container, #summary, #quiz-container h2, #quiz-container p, #quiz-container ul, #quiz-container li {
+  page-break-inside: avoid;
+}
+
+/* Allow page breaks after these elements */
+#quiz-container h2, #summary h2, #restart-button {
+  page-break-after: always;
+}
+
+/* Avoid breaking images */
+img {
+  page-break-inside: avoid;
+}
+
+/* Additional styles for page breaks */
+@media print {
+  #download-pdf-button, #restart-button {
+    display: none;
   }
-  
-  .fail-message {
-    color: #dc3545; /* Red color */
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  #restart-button {
-    margin-top: 30px;
-    padding: 12px 20px;
-    font-size: 18px;
-    background-color: #007BFF;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #restart-button:hover {
-    background-color: #0056b3;
-  }
+}
