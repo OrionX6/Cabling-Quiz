@@ -13,15 +13,34 @@
 </head>
 <body>
   <div id="quiz-container">
-    <!-- Added the quiz title here -->
+    <!-- Quiz Title -->
     <h1 id="quiz-title">Cabling Quiz</h1>
-    <div id="question-number"></div>
-    <div id="question-text"></div>
-    <ul id="options-list"></ul>
-    <div id="feedback"></div>
-    <button id="next-button" disabled>Next</button>
+    <!-- Mode Selection -->
+    <div id="mode-selection">
+      <button id="study-button">Study</button>
+      <button id="test-button">Test</button>
+    </div>
+    <!-- LDAP Field (hidden by default) -->
+    <div id="ldap-field" style="display: none;">
+      <label for="ldap-input">LDAP:</label>
+      <input type="text" id="ldap-input" name="ldap-input" />
+      <button id="ldap-next-button">Next</button>
+      <p id="ldap-error" class="error-message" style="display: none;">Please enter your LDAP to proceed.</p>
+    </div>
+    <!-- Quiz Content (hidden by default) -->
+    <div id="quiz-content" style="display: none;">
+      <div id="question-number"></div>
+      <div id="question-text"></div>
+      <ul id="options-list"></ul>
+      <div id="feedback"></div>
+      <button id="next-button" disabled>Next</button>
+    </div>
   </div>
 
+  <!-- Include html2pdf.js library from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <!-- Include scripts in the correct order -->
   <script src="questions.js"></script>
   <script src="quiz.js"></script>
 </body>
